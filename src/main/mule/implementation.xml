@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="getAllOrdini" doc:id="4b4246ee-18ee-43e8-97a8-6eea3f549700" >
+		<ee:transform doc:name="Transform Message" doc:id="6a118bdc-c537-4861-abb5-edac6af7fa5a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+	[ {
+  "codOrdine": "ORD-123456",
+  "codCliente": "CLI-445566",
+  "nomeCliente": "democratico americano",
+  "dataOrdine": "2021-01-20T13:46:36.781Z",
+  "prodotti": [
+    {
+      "codProdotto": "PRD-1456",
+      "nomeProdotto": "bomba a mano",
+      "qta": 10,
+      "prezzo": 1.99
+    }
+  ],
+  "ID": 1 },
+  {
+  "codOrdine": "ORD-123456",
+  "codCliente": "CLI-445566",
+  "nomeCliente": "Giovanni Verga Snc",
+  "dataOrdine": "2021-01-20T13:46:36.781Z",
+  "prodotti": [
+    {
+      "codProdotto": "PRD-123456",
+      "nomeProdotto": "TAPPETINO ANTISCIVOLO PER DOCCIA",
+      "qta": 1,
+      "prezzo": 19.99
+    }
+  ],
+  "ID": 2
+
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
